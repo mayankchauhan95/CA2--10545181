@@ -1,0 +1,8 @@
+class Product:
+    
+    def ap(self,sku,description,seller,price,currency):
+        self.sku = sku
+        self.description = description
+        self.seller = seller
+        self.price = price
+        self.currency = currency
