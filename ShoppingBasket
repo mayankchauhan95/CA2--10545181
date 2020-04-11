@@ -18,6 +18,9 @@ class Basket:
         if self.__value[Product]["quantity"]==0:
             del self.__value[Product] 
             
+    def getContents(self):
+        return '\n'.join("{}".format(v) for v in self.__value.values())     
+        
     def getValue(self):
         value = 0
         for item in self.__value.values():
