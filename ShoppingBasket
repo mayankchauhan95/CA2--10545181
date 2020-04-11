@@ -15,9 +15,27 @@ class Basket:
         self.__value[Product]["quantity"]-=1
         if self.__value[Product]["quantity"]==0:
             del self.__value[Product] 
-
-
-
+            
+    def getValue(self):
+        value = 0
+        for item in self.__value.values():
+            value = value + item["quantity"] * item["price"]
+        return value
+        
+   def getRate(self):
+        results=requests.get('https://api.exchangeratesapi.io/latest')
+        CAD=json.loads(results.content)['rates']['CAD']
+        USD=json.loads(results.content)['rates']['USD']
+        print(CAD,USD)
+        
+        v = 0
+        x = 0
+        for item in self.__value.values():
+            v = CAD * item["price"]
+            print ("Value in CAD",item["Product"], v)
+            x = USD * item["price"]
+            print ("Value in USD", item["Product"], x)     
+    
 class Product:
     
     def ap(self,sku,description,seller,price,currency):
@@ -30,5 +48,6 @@ class Product:
     def _repr_(self):
         return self._str_()
         
-        
+----------------------------------------------------------------------------------------------------------------------
+Testing Below:
         
