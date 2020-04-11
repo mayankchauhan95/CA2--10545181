@@ -38,7 +38,7 @@ class Basket:
     
 class Product:
     
-    def ap(self,sku,description,seller,price,currency):
+    def inf(self,sku,description,seller,price,currency):
         self.sku = sku
         self.description = description
         self.seller = seller
@@ -50,4 +50,29 @@ class Product:
         
 ----------------------------------------------------------------------------------------------------------------------
 Testing Below:
-        
+
+p=Product()
+Product1=p.inf(1,"Product1","abc",5,"EUR")
+Product2=p.inf(2,"Product2","def",7,"EUR")
+Product3=p.inf(3,"Product3","ghi",11,"EUR")
+Product2=p.inf(2,"Product2","def",7,"EUR")
+Product4=p.inf(4,"Product3","jkl",21,"EUR")
+
+basket = Basket()
+basket.add(1, "Product1", 5)
+basket.add(2, "Product2", 7)
+basket.add(2, "Product2", 7)
+basket.add(4, "Product4", 21)
+basket.add(1, "Product1", 5)
+
+basket.remove(4, "Product4", 21)
+
+print(basket.getContents())
+
+print(basket.getValue())
+
+print(basket.getRate())
+
+
+
+
