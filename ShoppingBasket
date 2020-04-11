@@ -1,3 +1,13 @@
+import json
+import requests
+
+class Basket:
+    def __init__(self):
+        self.__value={}
+
+
+
+
 class Product:
     
     def ap(self,sku,description,seller,price,currency):
@@ -6,3 +16,9 @@ class Product:
         self.seller = seller
         self.price = price
         self.currency = currency
+
+    def _repr_(self):
+        return self._str_()
+        
+        
+        
