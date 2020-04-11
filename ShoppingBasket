@@ -4,7 +4,17 @@ import requests
 class Basket:
     def __init__(self):
         self.__value={}
-
+        
+    def add(self, sku, Product, price):
+        if Product in self.__value:
+            self.__value[Product]["quantity"]+=1 
+        else:
+            self.__value[Product] = {"Product" : Product, "quantity" : 1, "price" : price}
+        
+    def remove(self, sku, Product, price):
+        self.__value[Product]["quantity"]-=1
+        if self.__value[Product]["quantity"]==0:
+            del self.__value[Product] 
 
 
 
